@@ -1,0 +1,158 @@
+﻿@model BSEF12m547.Models.Disease
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html>
+<body>
+    <section id="featured">
+        <!-- Slider -->
+        <div id="main-slider" class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="~/img/slides/1.jpg" alt="" />
+                    <div class="flex-caption">
+                        <h3>Well-Known Doctors</h3>
+                        <p>All Specialist At a single Plateform</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="~/img/slides/2.jpg" alt="" />
+                    <div class="flex-caption">
+                        <h3>Fully Responsive</h3>
+                        <p>Quick Responce on request for online Apointment</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="~/img/slides/3.jpg" alt="" />
+                    <div class="flex-caption">
+                        <h3>Online Appointments</h3>
+                        <p>Get easy Access to the City's highly Qualified Specialists</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- end slider -->
+
+    </section>
+    <section id="content">
+
+        <form action="@Url.Action("search1","Home")" class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control input-lg" placeholder="Search" name="s">
+            </div>
+            <button type="submit" class="btn btn-lg"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+
+        <br /><br />
+     <!--  <div style="width:250px" class="col-sm-6 pull-right">
+            <div id="search">
+                <div class="input-group">
+                    <input type="text" class="form-control input-lg" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+         --> 
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-7">
+                    <div>
+                        <h3><span>About Our Care</span></h3>
+                    </div>
+                    <p>We are providing our users a plateform to communicate to fulfill there needs. A patient can take online appointments for his checkup without wasting time. Doctors can manage his Clinic's Activity expectedly. <br>  Committed to improving the lives of patients worldwide. </p>
+                    <div>
+                        <h3>What we take CARE</h3>
+                    </div>
+                    <p> What diseases are common now-a-days. Keep our users up to date and provide them with recomendations. Our specialists users guide you how to keep yourself secure from diseases. <br> .</p>
+
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-5">
+
+                    <div class="latest-post-wrap pull-left">
+                        <h3><span>Disease Updates</span></h3>
+                       @{
+                           string temp = "/image/dis/"+ Model.Id +"_0.jpg";
+                        <!--Post item-->
+                        <div class="post-item-wrap pull-left col-sm-6 col-md-12 col-xs-12">
+                            <a href="@Url.Action("multiImage","Home",Model)">
+                              <img src=@temp class="img-responsive post-author-img" alt=""></a>
+                            <div class="post-content1 pull-left col-md-9 col-sm-9 col-xs-8">
+                                <div>@Model.Name</div>
+                                <div class="post-meta-top pull-left">
+                                    <ul>
+                                        <li><i class="fa fa-calendar"></i>@Model.DateUpdated</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="post-content2 pull-left">
+                                <p>
+                                    <div class="post-content2 ">
+
+                                        @Model.Description<br>
+
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                       }
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+
+    </section>
+
+    <div class="testimonial-area">
+        <div class="testimonial-solid">
+            <div class="container">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="">
+                            <a href="#"></a>
+                        </li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1" class="">
+                            <a href="#"></a>
+                        </li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2" class="active">
+                            <a href="#"></a>
+                        </li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3" class="">
+                            <a href="#"></a>
+                        </li>
+                    </ol>
+                    <div class="carousel-inner">
+                        @{
+                            string active = "active";
+                            string item = "item";
+                            int count = 0;
+                            foreach (var i in ViewBag.n)
+                            {
+                                if (count != 0)
+                                {
+                                    active = "";
+                                }
+                                string full = item +" "+ active;
+                                <div class="@full">
+                                    <p>@i.feedback1</p>
+                                    <p>
+                                        <b>@i.name</b>
+                                    </p>
+                                </div>
+                                count++;
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

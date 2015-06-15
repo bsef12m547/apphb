@@ -1,0 +1,258 @@
+﻿@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewBag.title</title>
+        <!-- Bootstrap Styles-->
+        <link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+        <!-- FontAwesome Styles-->
+        <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- Morris Chart Styles-->
+        <link href="~/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+        <link href="~/assets/css/custom-styles.css" rel="stylesheet" />
+    <script src="http://maps.googleapis.com/maps/api/js">
+    </script>
+
+    <script>
+        var myCenter = new google.maps.LatLng(31.554606,74.357158);
+
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+
+        function InitializeMap() {
+            directionsDisplay = new google.maps.DirectionsRenderer();
+            var latlng = new google.maps.LatLng(31.554606, 74.357158);
+            var myOptions =
+            {
+                zoom: 8,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
+
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById('directionpanel'));
+
+            var control = document.getElementById('control');
+            control.style.display = 'block';
+
+
+        }
+        function calcRoute() {
+
+            var start = document.getElementById('startvalue').value;
+            var end = document.getElementById('endvalue').value;
+
+            var request = {
+                origin: start,
+                destination: end,
+                travelMode: google.maps.DirectionsTravelMode.DRIVING
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+        }
+
+        function Button1_onclick() {
+            calcRoute();
+        }
+
+        window.onload = InitializeMap;
+
+
+        //function initialize() {
+        //    var mapProp = {
+        //        center: myCenter,
+        //        zoom: 5,
+        //        mapTypeId: google.maps.MapTypeId.ROADMAP
+        //    };
+
+        //    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+        //    var marker = new google.maps.Marker({
+        //        position: myCenter,
+        //    });
+
+        //    marker.setMap(map);
+        //}
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+<body>
+    <div id="wrapper" style="background-color: #409ba1; ">
+        <nav class=" navbar navbar-default top-navbar" role="navigation" style="background-color: #409ba1;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Admin/index" style="background-color: #409ba1;">MEDI<i>CARE</i></a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/Home/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation" style="background-color: #409ba1; ">
+            <div class=" sidebar-collapse">
+                <ul class="nav" id="main-menu" style="background-color: #409ba1;">
+
+                    <li>
+                        <a href="@Url.Action("Doc1","Patient")">
+                            <i class="fa fa-dashboard"></i> All Doctors
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Doc2","Patient")"><i class="fa fa-desktop"></i>Doctors Rates</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Doc3","Patient")"><i class="fa fa-bar-chart-o"></i>Doctors in Fee Range</a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("AppointmentDetail","Patient")><i class="fa fa-qrcode"></i>Appointment Detail</a>
+                    </li>
+
+                    <li>
+                        <a href=@Url.Action("View4Update","Patient")><i class="fa fa-table"></i>Edit Profiles</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Doc","Patient")" class=" active-menu"><i class="fa fa-edit"></i>View Routes</a>
+                    </li>
+
+                    
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i>Forms<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" style="background-color: #409ba1;">
+                            <li>
+                                <a href="@Url.Action("Feedback","Patient")">
+                                    Give Feedback
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Contact","Patient")">Contact Us</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+
+
+        @RenderBody()
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+    </div>
+        <script src="~/assets/js/jquery-1.10.2.js"></script>
+        <!-- Bootstrap Js -->
+        <script src="~/assets/js/bootstrap.min.js"></script>
+        <!-- Metis Menu Js -->
+        <script src="~/assets/js/jquery.metisMenu.js"></script>
+        <!-- Morris Chart Js -->
+        <script src="~/assets/js/morris/raphael-2.1.0.min.js"></script>
+        <script src="~/assets/js/morris/morris.js"></script>
+        <!-- Custom Js -->
+        <script src="~/assets/js/custom-scripts.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "AppointmentDetail";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<body>
+
+    <!--/. NAV TOP  -->
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            .
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">
+                       Appointment <small>Details</small>
+                    </h1>
+                </div>
+                <div class="">
+                    <div class="row">
+                        @{
+                            foreach (var e in Model)
+                            {
+                                <div class="col-md-3 col-sm-6">
+                                    <div>
+                                        <h4>@e.Name<</h4>
+                                        <span class="deg">@e.SpecialiseIn</span>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>All right reserved. Template by: <a href="http://webthemez.com">Mehreen</a></p>
+            </footer>
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+
+
+
+</body>

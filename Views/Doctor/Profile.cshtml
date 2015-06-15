@@ -1,0 +1,157 @@
+﻿@model BSEF12m547.Models.Doctor
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Profile.cshtml";
+}
+<body>
+
+    <div id="wrapper" style="background-color: #409ba1; ">
+        <nav class=" navbar navbar-default top-navbar" role="navigation" style="background-color: #409ba1;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Admin/index" style="background-color: #409ba1;">MEDI<i>CARE</i></a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 min</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+      
+           
+             
+        
+    <nav class="navbar-default navbar-side col-md-10" role="navigation">
+            <div class=" sidebar-collapse">
+
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                   @{string s ="/image/doc/"+Model.Id+".jpg";
+                        <img src="@s" alt="" />    
+                   } 
+                    </li>
+
+                    <li>
+                        <div class="col-sm-2"></div>
+                        <label>
+                            @Model.Name
+                        </label>
+                        </li>
+                    <li>
+                        <div>
+                            <a href="/Patient/SaveApp?DID=@Model.Id.ToString().Trim()">Apply for Appointment</a>
+                        </div>
+                     </li>
+                    </ul>
+
+
+
+            </div>
+
+        </nav>
+
+
+        <div id="page-wrapper">
+            <div id="page-inner">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            Hello!! <small>@Model.Name</small>
+                        </h1>
+                    </div>
+                </div>
+                <footer>
+                    <p>All right reserved. Template by: <a href="http://webthemez.com">Mehreen</a></p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="~/assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="~/assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="~/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="~/assets/js/morris/morris.js"></script>
+    <!-- Custom Js -->
+    <script src="~/assets/js/custom-scripts.js"></script>
+
+
+</body>

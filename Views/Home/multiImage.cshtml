@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "multiImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<body>
+    <div id="wrapper">
+        <div id="main-slider" class="flexslider" style="padding:4px 4px 4px 4px">
+
+
+            <ul class="slides">
+                @{
+                    string s;
+                    for (int i = 1; i < 4; i++)
+                    {
+                        s = "/image/dis/" + Model.Id + "_" + i + ".jpg";
+                        <li>
+                            <img src="@s" alt="" />
+                            <div class="flex-caption">
+                                <h3>Well-Known Doctors</h3>
+                                <p>All Specialist At a single Plateform</p>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+                
+            </div>
+        </div>
+    </body>
+</html>

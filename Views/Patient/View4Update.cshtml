@@ -1,0 +1,254 @@
+﻿@model BSEF12m547.Models.Patient
+@{
+    ViewBag.Title = "View4Update";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<html>
+<body>
+    <div id="page-wrapper">
+        <div id="page-inner">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">
+                        Edit <small> Your information</small>
+                    </h1>
+
+                    <div class="jumbotron vertical-center">
+
+                        <div class="container text-center">
+                            <form action="@Url.Action("UpdateOccure", "Patient")" method="post" enctype="multipart/form-data" class="col-sm-12">
+
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <input type="file" name="image" required />
+                                    </div>
+                                </div>
+                                <br />
+                                <input class="center-block" style="width:200px ; visibility:hidden" type="text" value="@Model.Id" name="Id">
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <label for="exampleInput1" class="col-sm-6 control-label">Name</label>
+                                    </div><br /><br />
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-6">
+
+                                        <input type="text" name="Name" class="form-control" id="exampleInput1" value="@Model.Name">
+                                    </div>
+                                <br /> <br />
+
+
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <label for="exampleInput2" class="col-sm-6 control-label">Email</label>
+                                    </div><br /><br />
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="Email" id="exampleInput2" placeholder="Email" value="@Model.Email">
+                                    </div>
+                                </div>
+                                <br /> <br />
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <label for="exampleInput3" class="col-sm-6 control-label">Password</label>
+                                    </div><br /><br />
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-sm-6">
+                                        <input type="password" name="Password" class="form-control" id="exampleInput3" placeholder="Password" value="@Model.Password">
+                                    </div>
+                                </div>
+                                <br /> <br />
+
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <label for="exampleInput1" class="col-sm-6 control-label">Address</label>
+                                    </div>
+                                    
+                                    <br /><br />
+
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-6">
+                                        <input type="text" name="City" class="form-control" id="exampleInput1"  value="@Model.City">
+                                    </div>
+         
+                                </div>
+                                <br /> <br />
+
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <label for="exampleInput3" class="col-sm-6 control-label">Desease</label>
+                                    </div><br /><br />
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="Desease" class="form-control" id="exampleInput3" value="@Model.Desease" >
+                                    </div>
+                                </div>
+                                <br /> <br />
+
+
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <label for="exampleInput3" class="col-sm-6 control-label">Birthday</label>
+
+                                    </div>
+                                    <div>
+                                        <label for="exampleInput1" class="col-sm-6 control-label">Telephone</label>
+                                    </div>
+                                    <br /><br />
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-3">
+                                        <input type="date" name="month" class="form-control" id="exampleInput1" placeholder="Pick DOB" value="@Model.month">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="tel" name="Telephone_" class="form-control" id="exampleInput2" placeholder="Telephone" value="@Model.Telephone_">
+                                    </div>
+
+                                    <!--     <div class="col-xs-2"></div>
+                                         <div class="col-sm-2">
+                                             <select class="form-control" id="exampleInput3" name="month">
+                                                 <option value="january">january</option>
+                                                 <option value="febrary">febrary</option>
+                                                 <option value="march">march</option>
+                                                 <option value="april">april</option>
+                                                 <option value="may">may</option>
+                                                 <option value="june">june</option>
+                                                 <option value="july">july</option>
+                                                 <option value="august">august</option>
+                                                 <option value="september">september</option>
+                                                 <option value="october">october</option>
+                                                 <option value="november">november</option>
+                                                 <option value="december">december</option>
+
+                                             </select>
+                                         </div>
+                                         <div class="col-sm-2">
+                                             <select class="form-control" id="exampleInput3" name="day">
+                                                 <option value="1">1</option>
+                                                 <option value="1">2</option>
+                                                 <option value="1">3</option>
+                                                 <option value="1">4</option>
+                                                 <option value="1">5</option>
+                                                 <option value="1">6</option>
+                                                 <option value="1">7</option>
+                                                 <option value="1">8</option>
+                                                 <option value="1">9</option>
+                                                 <option value="1">10</option>
+                                                 <option value="1">11</option>
+                                                 <option value="1">12</option>
+                                                 <option value="1">13</option>
+                                                 <option value="1">14</option>
+                                                 <option value="1">15</option>
+                                                 <option value="1">16</option>
+                                                 <option value="1">17</option>
+                                                 <option value="1">18</option>
+                                                 <option value="1">19</option>
+                                                 <option value="1">20</option>
+                                                 <option value="1">21</option>
+                                                 <option value="1">22</option>
+                                                 <option value="1">23</option>
+                                                 <option value="1">24</option>
+                                                 <option value="1">25</option>
+                                                 <option value="1">26</option>
+                                                 <option value="1">27</option>
+                                                 <option value="1">28</option>
+                                                 <option value="1">29</option>
+                                                 <option value="1">30</option>
+                                                 <option value="1">31</option>
+
+                                             </select>
+                                         </div>
+                                         <div class="col-sm-2">
+                                             <select class="form-control" id="exampleInput3" name="year">
+                                                 <option value="1991">1991</option>
+                                                 <option value="1992">1992</option>
+                                                 <option value="1993">1993</option>
+                                                 <option value="1994">1994</option>
+                                                 <option value="1995">1995</option>
+                                                 <option value="1996">1996</option>
+                                                 <option value="1997">1997</option>
+                                                 <option value="1998">1998</option>
+                                                 <option value="1999">1999</option>
+                                                 <option value="2000">2000</option>
+                                                 <option value="2001">2001</option>
+                                                 <option value="2002">2002</option>
+                                                 <option value="2003">2003</option>
+                                                 <option value="2004">2004</option>
+                                                 <option value="2005">2005</option>
+                                                 <option value="2006">2006</option>
+                                                 <option value="2007">2007</option>
+                                                 <option value="2008">2008</option>
+                                                 <option value="2009">2009</option>
+                                                 <option value="2010">2010</option>
+                                                 <option value="2011">2011</option>
+                                                 <option value="2012">2012</option>
+                                                 <option value="2013">2013</option>
+                                                 <option value="2014">2014</option>
+                                                 <option value="2015">2015</option>
+
+                                             </select>
+                                         </div>-->
+                                </div>
+
+                                <br /> <br />
+
+
+
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <label for="exampleInput1" class="col-sm-6 control-label">FeeRange</label>
+                                    </div><br /><br />
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="first" class="form-control" id="exampleInput1" placeholder=" First figure" value="@Model.first">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="number" name="last" class="form-control" id="exampleInput2" placeholder=" Last figure " value="@Model.last">
+                                    </div>
+                                </div>
+                                <br /> <br />
+
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <label for="exampleInput3" class="col-sm-6 control-label">Gender</label>
+                                    </div><br /><br />
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="exampleInput3" name="sex">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br /><br /><br />
+                                <div class="col-xs-2"></div>
+                                <div style="font:100;color:black" class="pull-left">
+                                    <input type="submit" name="submit" value="Submit " style="background: #409ba1" class="btn btn-default" />
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <footer>
+                <p>All right reserved <a href="http://webthemez.com">Mehreen</a></p>
+            </footer>
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+
+</body>
+</html>

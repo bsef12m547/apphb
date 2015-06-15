@@ -1,0 +1,24 @@
+﻿
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="">
+        <div class="row">
+            @{
+            foreach(var e in ViewBag.n)
+            {
+                string temp = "/image/doc/"+e.Id+".jpg";
+                <div class="col-md-3 col-sm-6">
+                    <div>
+                        <img class="img-responsive" src="@temp" alt="">
+                        <h4><a href ="/Doctor/Profile/@e.Id">@e.Name</a></h4>
+                        <span class="deg">@e.SpecialiseIn</span>
+                    </div>
+                </div>
+            }
+            }
+        </div>
+    </div>
+</body>
+</html>
+

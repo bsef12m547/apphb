@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "UpdateAdmin";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<body>
+    <div id="page-wrapper">
+        <div id="page-inner">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">
+                        Edit your Profile <small>@Model.Name</small>
+                    </h1>
+
+                    <div class="jumbotron vertical-center">
+
+
+                        <div class="container text-center">
+                            <form action="@Url.Action("Edit","Admin",TempData["n"])" method="Post" enctype="multipart/form-data" class="col-sm-12">
+
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <input type="file" name="image" required />
+                                    </div>
+                                </div>
+                                < <br /> <br />
+
+
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <label for="exampleInput2" class="col-sm-6 control-label">Name</label>
+                                    </div><br /><br />
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="Name" class="form-control" id="exampleInput2" value="@Model.Name">
+                                    </div>
+
+                                </div>
+
+                                <br /> <br />
+                                <div class="form-group">
+                                    <div class="col-xs-2"></div>
+                                    <div class="pull-left">
+                                        <label for="exampleInput3" class="col-sm-6 control-label">Password</label>
+                                    </div><br /><br />
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="pass" class="form-control" id="exampleInput3" value="@Model.pass" required>
+                                    </div>
+                                </div>
+                                <br /> <br />
+                                 <div style="font:100;color:black">
+                                    <input type="submit" name="submit" value="Submit " style="background: #409ba1" class="btn btn-default" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                    <footer>
+                        <p>All right reserved. Template by: <a href="http://webthemez.com">Mehreen</a></p>
+                    </footer>
+                </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+
+</body>

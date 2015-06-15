@@ -1,0 +1,46 @@
+﻿@model System.Data.Entity.Infrastructure.DbQuery<BSEF12m547.Models.Doctor>
+@{
+    ViewBag.Title = "DelDoc";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<body>
+
+    <!--/. NAV TOP  -->
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">
+                        Dashboard <small>Summary of your App</small>
+                    </h1>
+                    <div class="">
+                        <div class="row">
+                            @{
+                                foreach (var e in Model)
+                                {
+                                    string temp = "/image/doc/"+ e.Id +".jpg";
+                                    <div class="col-md-3 col-sm-6">
+                                        <div>
+                                            <img class="img-responsive" src="@temp" alt="">
+                                            <h4>@e.Name</h4>
+                                            <span class="deg">@e.SpecialiseIn</span><br/>
+                                            <a href="@Url.Action("DeletionDocOccure","Admin",e)">Delete</a>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>All right reserved. Template by: <a href="http://webthemez.com">Mehreen</a></p>
+            </footer>
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+</body>

@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="wrapper">
+
+        <section id="inner-headline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="pageTitle">About Us</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="content">
+            <div class="container">
+
+                <div class="about">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="about-logo">
+                                <h3>We are awesome TEAM</h3>
+                                <p>some lines about admin and doctors </p>
+                                <p>-------------</p>
+                            </div>
+                            <a href="#" class="btn btn-color">Read more</a>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="block-heading-two">
+                                <h3><span>Why Choose Us?</span></h3>
+                            </div>
+                            <p>about website some paragraph</p>
+                        </div>
+                    </div>
+
+
+
+                    <br>
+                    <div class="block-heading-six">
+                        <h4 class="bg-color">Our Best Team</h4>
+                    </div>
+                    <br>
+
+
+
+                    <div class="">
+                        <div class="row">
+                            @{
+                                int count = 0 ; 
+                                
+                                foreach (var e in Model)
+                                {
+                                    string temp = "/image/doc/"+ e.Id + ".jpg";
+                                    <div class="col-md-3 col-sm-6">
+                                        <div>
+                                            <img class="img-responsive" src="@temp" alt="">
+                                            <h4>@e.Name</h4>
+                                            <span class="deg">@e.SpecialiseIn</span>
+                                        </div>
+                                    </div>
+                                    count++;
+                                    if (count > 3)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</body>
+</html>

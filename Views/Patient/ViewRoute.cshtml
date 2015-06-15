@@ -1,0 +1,49 @@
+﻿@model System.Data.Entity.Infrastructure.DbQuery<BSEF12m547.Models.Doctor>
+@{
+    ViewBag.title = "ViewRiute";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<body>
+    <div id="page-wrapper">
+        <div id="page-inner">
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">
+                        Select Doctor<small>to view a route between you and him</small>
+                    </h1>
+
+                    <div class="">
+                        <div class="row">
+                            @{
+                                foreach (var e in ViewBag.n)
+                                {
+                                    TempData["m"]=e.City.Trim();
+                                    string temp = "/image/doc/" + e.Id + ".jpg";
+                                    <div class="col-md-3 col-sm-6">
+                                        <div>
+                                            <img class="img-responsive" src="@temp" alt="">
+                                            <h4>@e.Name</h4>
+                                            <span class="deg">@e.SpecialiseIn</span><br />
+                                            <input type="text" value="@e.City" style="visibility:hidden"/>
+                                            <a href="@Url.Action("Route","Patient")">Route</a>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>All right reserved. Template by: <a href="http://webthemez.com">Mehreen</a></p>
+            </footer>
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+
+</body>
+
