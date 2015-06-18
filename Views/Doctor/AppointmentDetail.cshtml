@@ -1,7 +1,6 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "AppointmentDetail";
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
 }
 @model List<BSEF12m547.Models.Appointment>
 @using BSEF12m547.Models;
@@ -16,7 +15,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="page-header">
-                       Appointment <small>Details</small>
+                        Appointment <small>Details</small>
                     </h1>
                 </div>
                 <div class="">
@@ -24,29 +23,29 @@
                         @{
                             foreach (Appointment e in Model)
                             {
-                                
-                             if(Session["user"]!=null)
+
+                                if (Session["user"] != null)
                                 {
                                     int id = (int)Session["user"];
                                     Patient p = new Patient();
                                     userEntities2 ue = new userEntities2();
                                     p = ue.Patients.First(x => x.Id == id);
-                                 Doctor d = new Doctor();
-                                 d= ue.Doctors.First(x=>x.Id== e.DocID);
-                                 if(p.Id==e.PatientID)
-                                 {
-                                   <div class="col-md-3 col-sm-6">
-                                    <div>
-                                        Appointment number:<h4>@e.Id:</h4>
-                                        Your name: <span class="deg">@p.Name</span><br />
+                                    Doctor d = new Doctor();
+                                    d = ue.Doctors.First(x => x.Id == e.DocID);
+                                    if (p.Id == e.PatientID)
+                                    {
+                                        <div class="col-md-3 col-sm-6">
+                                            <div>
+                                                Appointment number:<h4>@e.Id:</h4>
+                                                PAtient name: <span class="deg">@p.Name</span><br />
 
-                                        Doctor name:<span class="deg">@d.Name</span><br />
-                                        Date:<span class="deg">@e.Date</span>
-                                    </div>
-                                    </div> 
-                                 }
-                                }                                       
-                             
+                                                Your name:<span class="deg">@d.Name</span><br />
+                                                Date:<span class="deg">@e.Date</span>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
                             }
                         }
                     </div>
@@ -62,3 +61,4 @@
 
 
 </body>
+
